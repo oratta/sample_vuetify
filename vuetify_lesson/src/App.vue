@@ -12,14 +12,10 @@
             <v-btn v-on="on" text>Support</v-btn>
           </template>
           <v-list>
-            <v-list-item>
+            <v-subheader>Get help</v-subheader>
+            <v-list-item v-for="support in supports" :key="support">
               <v-list-item-content>
-                <v-list-item-title>Consulting and support</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title>Discord community</v-list-item-title>
+                <v-list-item-title>{{ support }}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -37,7 +33,14 @@
 export default {
   data(){
     return{
-      drawer: null
+      drawer: null,
+      supports: [
+              'Consulting and support',
+              'Discord community',
+              'Report a bug',
+              'Github issue board',
+              'Stack overview',
+      ]
     }
   }
 };
