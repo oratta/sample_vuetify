@@ -26,9 +26,9 @@
                 </v-list-item-title>
               </v-list-item-content>
             </template>
-            <v-list-item v-for="list in nav_list.lists" :key="list">
+            <v-list-item v-for="list in nav_list.lists" :key="list" :to="list.link">
               <v-list-item-content>
-                <v-list-item-title>{{ list }}</v-list-item-title>
+                <v-list-item-title>{{ list.name }}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list-group>
@@ -61,7 +61,7 @@
           </template>
           <v-list>
             <v-subheader>Get help</v-subheader>
-            <v-list-item v-for="support in supports" :key="support.name">
+            <v-list-item v-for="support in supports" :key="support.name"  :to="support.link">
               <v-list-item-icon>
                 <v-icon>{{ support.icon }}</v-icon>
               </v-list-item-icon>
@@ -88,18 +88,43 @@ export default {
   data(){
     return{
       drawer: null,
-      supports: [
-        {name: 'Consulting and support', icon: 'mdi-vuetify'},
-        {name: 'Discord community', icon: 'mdi-discord'},
-        {name: 'Report a bug', icon: 'mdi-bug'},
-        {name: 'Github issue board', icon: 'mdi-github-face'},
-        {name: 'Stack overview', icon: 'mdi-stack-overflow'},
+      supports:[
+        {
+          name: 'Consulting and suppourt',
+          icon: 'mdi-vuetify',
+          link:'/consulting-and-support'
+        },
+        {
+          name: 'Discord community',
+          icon: 'mdi-discord',
+          link:'/discord-community'},
+        {
+          name: 'Report a bug',
+          icon: 'mdi-bug',
+          link:'/report-a-bug'
+        },
+        {
+          name: 'Github issue board',
+          icon: 'mdi-github-face',
+          link:'/guthub-issue-board'
+        },
+        {
+          name: 'Stack overview',
+          icon: 'mdi-stack-overflow',
+          link:'/stack-overview'
+        },
       ],
       nav_lists:[
         {
           name: 'Getting Started',
           icon: 'mdi-speedometer',
-          lists:['Quick Start','Pre-made layouts']
+          lists:[{
+            name:'Quick Start',link:'/quick-start'
+            },
+            {
+              name:'Pre-made layouts',link:'/pre-made-layouts'
+            }
+          ]
         },
         {
           name: 'Customization',
@@ -108,12 +133,12 @@ export default {
         {
           name: 'Styles & animations',
           icon: 'mdi-palette',
-          lists:['Colors','Content','Display']
+          lists:[{name:'Colors'},{name:'Content'},{name:'Display'}]
         },
         {
           name: 'UI Components',
           icon: 'mdi-view-dashboard',
-          lists:['API explorer','Alerts']
+          lists:[{name:'API explorer'},{name:'Alerts'}]
         },
         {
           name: 'Directives',
