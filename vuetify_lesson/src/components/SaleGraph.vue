@@ -1,27 +1,29 @@
 <template>
     <v-card
-        class="mx-auto text-center"
-        color="green"
-        dark>
+            class="mx-auto text-center"
+            color="green"
+            dark
+    >
         <v-card-text>
-            <v-sheet color="rgba(0,0,0, .12)">
+            <v-sheet color="rgba(0, 0, 0, .12)">
                 <v-sparkline
-                    :labels="labels"
-                    :value="values"
-                    color="rgba(255,255,255, .7)"
-                    stroke-linecap="round"
-                    smooth
-                    >
+                        :labels="labels"
+                        :value="value"
+                        color="rgba(255, 255, 255, .7)"
+                        stroke-linecap="round"
+                        smooth
+                >
                 </v-sparkline>
             </v-sheet>
         </v-card-text>
         <v-card-text>
-            <div calss="display-1 font-weight-thick">Sales</div>
+            <div class="display-1 font-weight-thick">Sales</div>
         </v-card-text>
     </v-card>
 </template>
+
 <script>
-    export default{
+    export default {
         data: () => ({
             labels: [
                 '12am',
@@ -43,5 +45,5 @@
                 760,
             ],
         }),
-    }
+    };
 </script>
